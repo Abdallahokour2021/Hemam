@@ -53,7 +53,7 @@ Widget AdminHomeDrawer(context) {
                           tabs: [
                             Tab(
                               icon: Icon(Icons.event_note),
-                              text: "My Events",
+                              text: "أعمالي",
                             ),
                             Tab(icon: Icon(Icons.settings), text: "الاعدادات"),
                           ],
@@ -77,6 +77,7 @@ Widget myEvents(context) {
             ];
 
             await Init(context);
+            _.update();
             _.update();
             return await Future.delayed(Duration(seconds: 4));
           },
@@ -132,21 +133,24 @@ Widget settings() {
 }
 
 Init(context) async {
+  print("reload....");
   var x = Get.put(ControlerDrower());
+  x.events = [];
   x.view = [
     Center(
       child: Text("جاري التحميل"),
     )
   ];
-  x.events = [];
+
   x.update();
   readToken().then((value) async {
-    orgEvents(value).then((value) {
-      if (value["state"]) {
-        value["data"].forEach((e) {
+    orgEvents(value).then((res) {
+      print(res);
+      if (res["state"]) {
+        res["data"].forEach((e) {
+          print(e);
           x.events
               .add(Event(e["name"], e["id"], e["date"], e["type"], e["time"]));
-          x.update();
         });
 
         x.view = x.events.map((e) {
@@ -205,6 +209,7 @@ Init(context) async {
         ];
         x.update();
       }
+      x.update();
     });
   });
 }

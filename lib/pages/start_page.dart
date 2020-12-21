@@ -33,8 +33,7 @@ class StartPage extends GetWidget {
                 Container(
                   margin: EdgeInsets.all(10),
                   child: Text(
-                             "انطلاقا من رؤية سمو ولي العهد وسيراًعلى نهج جلالة الملك الذي امن بشباب واعد قادر  على بناء المستقبل والنهوض بالأمة تم انشاء هِمم ليكون مجمع لنشاطات الشبابية",
-
+                    "انطلاقا من رؤية سمو ولي العهد وسيراًعلى نهج جلالة الملك الذي امن بشباب واعد قادر  على بناء المستقبل والنهوض بالأمة تم انشاء هِمم ليكون مجمع لنشاطات الشبابية",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         color: Colors.white,
@@ -59,7 +58,7 @@ class StartPage extends GetWidget {
                     color: Colors.blue[300],
                     borderSide: BorderSide(color: Colors.white),
                     onPressed: () {
-                    Get.offAll(Home());
+                      Get.offAll(Home());
                     },
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,

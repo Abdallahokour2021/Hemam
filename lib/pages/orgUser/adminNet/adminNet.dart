@@ -55,7 +55,7 @@ Future<dynamic> CreateEvent(
       'eventName': eventName,
       'date': date,
       'type': type,
-      'eventInfo': eventInfo,
+      'eventInfo': eventInfo+"\n\n\n",
       'numberAllowed': numberAllowed,
       'time': time
     }),
@@ -116,7 +116,7 @@ Future<dynamic> updateEventData(
     body: jsonEncode(<String, String>{
       'eventName': eventName,
       'type': type,
-      'eventInfo': eventInfo,
+      'text': eventInfo+"\n\n\n",
       'numberAllowed': numberAllowed,
       'postId': postId,
     }),

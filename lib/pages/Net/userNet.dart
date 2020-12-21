@@ -16,23 +16,40 @@ Future<dynamic> joinToEvent(String eventName, String name, String age,
     "Content-type": "application/json",
     "Accept": "application/json"
   };
-  var data = await http.post(
-    url + "apply",
-    headers: header,
-    body: jsonEncode(<String, String>{
-      'eventName': eventName,
-      'name': name,
-      'email': email,
-      'age': age,
-      'gender': gender,
-      'phone': phone,
-    })
-  );
+  var data = await http.post(url + "apply",
+      headers: header,
+      body: jsonEncode(<String, String>{
+        'eventName': eventName,
+        'name': name,
+        'email': email,
+        'age': age,
+        'gender': gender,
+        'phone': phone,
+      }));
   var statebool = jsonDecode(data.body)["state"];
 
   return statebool;
 }
 
+Future<dynamic> sendSugg(
+    String name, String info, String email, String phone) async {
+  Map<String, String> header = {
+    "Content-type": "application/json",
+    "Accept": "application/json"
+  };
+  var data = await http.post(url + "sugg",
+      headers: header,
+      body: jsonEncode(<String, String>{
+        'name': name,
+        'email': email,
+        'info': info,
+        'phone': phone,
+      }));
+  print(data.body);
+  var statebool = jsonDecode(data.body)["state"];
+
+  return statebool;
+}
 // Future<dynamic> login(String email, String password) async {
 //   Map<String, String> header = {
 //     "Content-type": "application/json",

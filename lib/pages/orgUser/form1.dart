@@ -3,9 +3,19 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:hemam/pages/orgUser/contoler.dart';
 import 'package:hemam/pages/orgUser/form2.dart';
+import 'package:hemam/pages/orgUser/t.dart';
 import 'package:hemam/strings.dart';
-import 'package:intl/intl.dart';
+
 import 'adminHome.dart';
+import 'dart:ui';
+
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:hemam/pages/Net/userNet.dart';
+import 'package:hemam/pages/normalUser/UserHome.dart';
+import 'package:hemam/pages/normalUser/userControler.dart';
+
+import '../maincontroller.dart';
 
 class Form1 extends GetWidget {
   @override
@@ -43,11 +53,11 @@ Widget body(context) {
   var year = DateTime.now().year.toInt();
   var month = DateTime.now().month.toInt();
   var day = DateTime.now().day.toInt();
-  var times=DateFormat.yMEd().add_jms().format(DateTime.now());
-  var time=times.split(" ")[2].split(":");
+  var times = Tm().getTm();
+  var time = times.split(" ")[2].split(":");
 
-  var tiemR="${time[0]}:${time[1]}";
-  var amOrpm=times.split(" ")[3];
+  var tiemR = "${time[0]}:${time[1]}";
+  var amOrpm = times.split(" ")[3];
 
   x.timeTime = "$tiemR $amOrpm";
   x.dateTime = "$year/$month/$day";
@@ -72,11 +82,17 @@ Widget body(context) {
           Container(
             padding: EdgeInsets.all(10),
             child: TextField(
+              textDirection: TextDirection.rtl,
+              textInputAction: TextInputAction.none,
+              textCapitalization: TextCapitalization.words,
+              textAlign: TextAlign.right,
               onChanged: (v) {
                 _.eventName = v;
                 _.update();
               },
-              decoration: InputDecoration(labelText: aft2),
+              decoration: InputDecoration(
+                labelText: aft2,
+              ),
             ),
           ),
           Container(

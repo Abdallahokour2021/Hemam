@@ -4,7 +4,9 @@ import 'package:hemam/pages/normalUser/userControler.dart';
 import '../Net/userNet.dart';
 import 'package:get/state_manager.dart';
 import 'package:hemam/pages/normalUser/join.dart';
+
 import 'package:get/get.dart';
+
 class PostDetails extends GetWidget {
   //!Event info just fetch from server
   String postId;
@@ -15,14 +17,14 @@ class PostDetails extends GetWidget {
   String date;
   String eventInfo;
   PostDetails(String _postId, String _numberAllowd, Color _colorDetails,
-      String _eventName, String _orgImage, String _date,_eventInfo) {
+      String _eventName, String _orgImage, String _date, _eventInfo) {
     this.postId = _postId;
     this.numberAllowd = _numberAllowd;
     this.eventName = _eventName;
     this.colorDetails = _colorDetails;
     this.orgImage = _orgImage;
     this.date = _date;
-    this.eventInfo=_eventInfo;
+    this.eventInfo = _eventInfo;
   }
   @override
   Widget build(BuildContext context) {
@@ -30,9 +32,11 @@ class PostDetails extends GetWidget {
       // ignore: missing_required_param
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       // ignore: missing_required_param
-      floatingActionButton: FloatingActionButton.extended(
-        backgroundColor: Colors.white,
-        label: Container(
+      floatingActionButton: Visibility(
+        child: Container(
+          decoration: BoxDecoration(
+              color: Colors.white,
+              boxShadow: [BoxShadow(blurRadius: 3, color: Colors.grey)]),
           width: 300,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -57,6 +61,34 @@ class PostDetails extends GetWidget {
           ),
         ),
       ),
+      // floatingActionButton: FloatingActionButton.extended(
+      //   backgroundColor: Colors.white,
+      //   label: Container(
+      //     width: 300,
+      //     child: Row(
+      //       mainAxisAlignment: MainAxisAlignment.spaceAround,
+      //       children: [
+      //         FlatButton(
+      //           shape: new RoundedRectangleBorder(
+      //               borderRadius: new BorderRadius.circular(30.0)),
+      //           color: Colors.green,
+      //           onPressed: () {
+      //             Get.to(Join(this.postId, this.eventName));
+      //           },
+      //           child: Text(
+      //             "انضمام",
+      //             style: TextStyle(color: Colors.white),
+      //           ),
+      //         ),
+      //         Text(
+      //           "${this.numberAllowd} : العدد المتاح ",
+      //           style: TextStyle(color: Colors.green),
+      //         )
+      //       ],
+      //     ),
+      //   ),
+      // ),
+
       body: body(context),
     );
   }
@@ -64,9 +96,10 @@ class PostDetails extends GetWidget {
   Widget body(context) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       var x = Get.put(postController());
+
       x.eventInfo = "";
       getPost(this.postId).then((value) async {
-        x.eventInfo = value;
+        x.eventInfo = value + "\n\n\n";
         x.update();
       });
     });

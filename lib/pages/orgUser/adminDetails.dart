@@ -37,9 +37,7 @@ class AdminDetails extends GetWidget {
   Widget build(BuildContext context) {
     var _ = Get.put(ControlerDetials());
     return WillPopScope(
-      onWillPop: () {
-        print("back");
-      },
+      onWillPop: () {},
       child: Scaffold(
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
@@ -161,6 +159,7 @@ class AdminDetails extends GetWidget {
               ],
             ),
           ),
+          onPressed: () {},
         ),
         body: SingleChildScrollView(
           child: GetBuilder<ControlerDetials>(
@@ -199,7 +198,7 @@ class AdminDetails extends GetWidget {
                               )
                             ],
                             onChanged: (value) {
-                              _.eventType = value.toString();
+                              _.eventType = value;
 
                               _.update();
                             },
@@ -381,6 +380,8 @@ class AdminDetails extends GetWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
                                 TextField(
+                                    controller: TextEditingController(
+                                        text: _.eventInfo),
                                     textDirection: TextDirection.rtl,
                                     textCapitalization:
                                         TextCapitalization.words,
@@ -389,6 +390,7 @@ class AdminDetails extends GetWidget {
                                     onChanged: (v) {
                                       _.eventInfo = v;
                                       _.update();
+                                      print(_.eventInfo);
                                     },
                                     decoration: InputDecoration(
                                         focusedBorder: InputBorder.none,

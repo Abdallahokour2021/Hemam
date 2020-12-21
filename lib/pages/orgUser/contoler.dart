@@ -16,10 +16,10 @@ class ControlerDetials extends GetxController {
   var $eventType = 0;
   var $eventInfo = "none";
 
-  var eventName = "جاري التحميل";
-  var numberAllowd = "جاري التحميل";
-  var eventType = "جاري التحميل";
-  var eventInfo = "جاري التحميل";
+  var eventName = "";
+  var numberAllowd = "";
+  var eventType = "";
+  var eventInfo = "";
   Color colorDetils = Colors.grey;
 }
 
@@ -28,7 +28,7 @@ class ControlerDrower extends GetxController {
   Widget name = CircularProgressIndicator();
   List<Event> events = [];
   List<Widget> view = [
-    Column(children: [CircularProgressIndicator(), Text("Loading")])
+    Column(children: [Text("جاري التحميل")])
   ];
 }
 

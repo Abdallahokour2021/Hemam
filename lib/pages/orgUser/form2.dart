@@ -94,6 +94,7 @@ Widget body(context) {
                 _.eventInfo = v;
                 _.update();
               },
+              textInputAction: TextInputAction.none,
               decoration: InputDecoration(
                   focusedBorder: InputBorder.none,
                   enabledBorder: InputBorder.none,
@@ -111,15 +112,16 @@ Widget body(context) {
               FlatButton(
                 onPressed: () {
                   Get.defaultDialog(
-                      textConfirm: "yes",
+                      textConfirm: "نعم",
+                      textCancel: "لا",
                       cancelTextColor: Colors.redAccent,
                       buttonColor: Colors.white,
                       titleStyle: TextStyle(
                           color: Colors.redAccent,
                           fontStyle: FontStyle.normal,
                           fontSize: 20),
-                      middleText: "are you sure?",
-                      title: "cancel Event",
+                      middleText: "هل انت مأكد",
+                      title: "الغاء الامر",
                       onCancel: () {},
                       onConfirm: () {
                         Get.back();
@@ -145,8 +147,8 @@ Widget body(context) {
                             color: Colors.redAccent,
                             fontStyle: FontStyle.normal,
                             fontSize: 20),
-                        title: "Please Fill all fields!",
-                        middleText: "you have some text field empty !");
+                        title: "خطأ",
+                        middleText: "هناك بعض الحقول الفارغة يرجى تعبئتها");
                   } else {
                     //?Send and go to home page
                     Get.defaultDialog(
@@ -174,7 +176,7 @@ Widget body(context) {
                             Get.defaultDialog(
                                 title: "تم انشاء الحدث بنجاح",
                                 titleStyle: TextStyle(
-                                  fontSize: 25,
+                                    fontSize: 25,
                                     fontWeight: FontWeight.normal,
                                     fontStyle: FontStyle.normal),
                                 content: Column(
@@ -184,7 +186,6 @@ Widget body(context) {
                                       color: Colors.green,
                                       size: 50,
                                     ),
-
                                   ],
                                 ));
                           });

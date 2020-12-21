@@ -83,11 +83,30 @@ class formController extends GetxController {
   String email = "";
   int gender = 0;
   String age = "";
-  String fullname="";
+  String fullname = "";
 }
+
+class suggController extends GetxController {
+  @override
+  void onReady() {
+    super.onReady();
+    print('formController Ready');
+  }
+
+  String firstName = "";
+  String parentName = "";
+  String lastName = "";
+  String numberPhone = "";
+  String email = "";
+  String info = "";
+  String fullname = "";
+}
+
+
 class homeController extends GetxController {
-    Color color=Colors.blueAccent;
+  Color color = Colors.blueAccent;
 }
+
 class postController extends GetxController {
   List<POST_CONFIG> posts = [];
   String eventInfo = "";
@@ -101,6 +120,7 @@ class postController extends GetxController {
     )
   ];
 }
+
 // class artController extends GetxController {
 //   List<POST_CONFIG> posts = [];
 //   String eventInfo = "";

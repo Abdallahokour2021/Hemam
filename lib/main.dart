@@ -46,13 +46,13 @@ class App extends GetWidget {
             ),
             title: Text("Hemam App",
                 style: TextStyle(color: Colors.white, fontSize: 30)),
-            backgroundColor: Colors.blue[300],
+            backgroundColor: Colors.blue,
             useLoader: false,
             seconds: 3,
             navigateAfterSeconds:
-            GetBuilder<mainController>(builder: (__) => __.Page)),
+                GetBuilder<mainController>(builder: (__) => __.Page)),
         theme: ThemeData(
-          // Define the default brightness and colors.
+            // Define the default brightness and colors.
             brightness: Brightness.light,
             primaryColor: Colors.lightBlue[800],
             accentColor: Colors.black26,

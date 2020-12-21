@@ -21,6 +21,7 @@ import 'package:hemam/pages/about.dart';
 import 'package:hemam/pages/normalUser/arts_page.dart';
 import 'package:hemam/pages/normalUser/comp_page.dart';
 import 'package:get/get.dart';
+import 'package:hemam/pages/normalUser/sendSuggestion.dart';
 import 'package:hemam/pages/normalUser/sport_page.dart';
 import 'package:hemam/pages/normalUser/userControler.dart';
 import 'package:hemam/pages/normalUser/volunteer_page.dart';
@@ -201,6 +202,15 @@ class Home extends GetWidget {
               decoration: BoxDecoration(
                 color: Colors.blue,
               ),
+            ),
+            ListTile(
+              leading: Icon(Icons.send),
+              title: Text("اقتراح حدث جديد"),
+              onTap: () {
+                Get.to(FormSugg());
+                // Update the state of the app.
+                // ...
+              },
             ),
             ListTile(
               leading: Icon(Icons.info),

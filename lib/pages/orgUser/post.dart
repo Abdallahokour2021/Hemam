@@ -98,7 +98,7 @@ class EventPost extends Widget {
           getPostAdmin(this.postId).then((value) {
             Get.back();
 
-            Get.to(AdminDetails(value["id"], value["name"], value["text"],
+            Get.offAll(AdminDetails(value["id"], value["name"], value["text"],
                 value["numberAllowd"], value["type"]));
           });
         },
